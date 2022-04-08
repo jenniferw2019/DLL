@@ -98,6 +98,7 @@ int dlist::sumEven(node* current, int sum)
   return sum;
 }
 
+/*
 void dlist::copyValue(node* current, node* &copyNode, node* copycurrent, int number)
 {
   if (current != tail)
@@ -142,6 +143,7 @@ void dlist::copyValue(node* current, node* &copyNode, node* copycurrent, int num
 	}
     }
 }
+*/
 
 void print(node* current)
 {
@@ -155,4 +157,55 @@ void print(node* current)
     {
       cout << endl;
     }
+}
+
+void dlist::copyValue2(node* current, int number)
+{
+  if (current->next != NULL)
+    {
+      if ((current->data) != number)
+	{
+	  if (head == NULL)
+	    {
+	      node* temp = new node();
+	      temp->data = current->data;
+	      head = temp;
+	      head->previous = NULL;
+	      tail = head;
+	      tail->next = NULL;
+	      current = current->next;
+	      copyValue2(current, number);
+	    }
+	  else
+	    {
+	      node* temp = new node();
+	      temp->data = current->data;
+	      tail->next = temp;
+	      node* pre = tail;
+	      tail = tail->next;
+	      tail->next = NULL;
+	      tail->previous = pre;
+	      current = current->next;
+	      copyValue2(current, number);
+	    }
+	}
+      else
+	{
+	  current = current->next;
+	  copyValue2(current, number);
+	}
+    }
+  else
+    {
+      if ((current->data) != number)
+	{
+	  node* temp = new node();
+	  temp->data = current->data;
+	  tail->next = temp;
+	  node* pre = tail;
+	  tail = tail->next;
+	  tail->previous = pre;
+	}
+    }
+  
 }
