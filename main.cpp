@@ -4,7 +4,7 @@
 int main()
 {
     dlist object;
-    node* head;
+    node* head1;
     object.build();
     object.display();
 
@@ -20,7 +20,7 @@ int main()
     object.display();
     */
     
-    head = object.getHead();
+    head1 = object.getHead();
     
     //object.remove(head, 9);
 
@@ -28,10 +28,14 @@ int main()
     //total = object.sumEven(head, 0);
     //cout << total << endl;
 
-    node* copy;
-    object.copyValue(head, copy, copy, 2);
-    print(copy);
-    
+    //node* copy;
+    //object.copyValue(head, copy, copy, 2);
+    //print(copy);
+
+
+    dlist copyList;
+    copyList.copyValue2(head1, 2);
+    copyList.display();
     //object.display();
     
     return 0;
