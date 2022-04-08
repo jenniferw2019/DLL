@@ -209,3 +209,42 @@ void dlist::copyValue2(node* current, int number)
     }
   
 }
+
+void dlist::add(node* current, int number)
+{
+  if (current != NULL)
+    {
+      if (current->data == number)
+	{
+	  if (current != tail)
+	    {
+	      node* newNode = new node();
+	      newNode->data = 0;
+	      node* pre = current->previous;
+	      node* after = current->next;
+	      current->next = newNode;
+	      current = current->next;
+	      current->next = after;
+	      current->previous = pre;
+	      add(current, number);
+	    }
+	  else
+	    {
+	      node* newNode = new node();
+	      newNode->data = 0;
+	      node* pre = tail;
+	      current->next = newNode;
+	      current = current->next;
+	      tail = current;
+	      tail->previous = pre;
+	      tail->next = NULL;
+	      
+	    }
+	}
+      else
+	{
+	  current = current->next;
+	  add(current, number);
+	}
+    }
+}

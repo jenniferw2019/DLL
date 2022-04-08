@@ -33,10 +33,12 @@ int main()
     //print(copy);
 
 
-    dlist copyList;
-    copyList.copyValue2(head1, 2);
-    copyList.display();
+    //dlist copyList;
+    //copyList.copyValue2(head1, 2);
+    //copyList.display();
     //object.display();
-    
+
+    object.add(head1, 9);
+    object.display();
     return 0;
 }

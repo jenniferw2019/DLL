@@ -33,6 +33,7 @@ class dlist
   int sumEven(node* current, int sum);
   //void copyValue(node* current, node* &copyNode, node* copycurrent, int number);
   void copyValue2(node* current, int number);
+  void add(node* current, int number);
   
      private:
          node * head;   //notice there is both a head
